@@ -15,4 +15,6 @@ def configure(env):
         env.android_add_res_dir("android/res/")
         #env.disable_module()
     if (env['platform'] == 'iphone'):
-	pass
+        env.Append(CPPPATH=['#core'])
+        env.Append(FRAMEWORKPATH=['modules/GodotFacebook/ios/'])
+        env.Append(LINKFLAGS=['-ObjC', '-framework', 'FBSDKCoreKit', '-framework', 'FBSDKLoginKit', '-framework', 'FBSDKShareKit', '-framework', 'Bolts'])
